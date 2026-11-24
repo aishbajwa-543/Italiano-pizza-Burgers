@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Italiano Pizza & Burgers | Rawalpindi & Islamabad</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fffaf5;
+    color:#222;
+}
+
+/* NAVBAR */
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#111;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 7%;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#e63946;
+}
+
+.logo span{
+    color:#fff;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    color:#e63946;
+}
+
+.menu-btn{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    padding:60px 7%;
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+    color:white;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#e63946;
+}
+
+.hero p{
+    font-size:19px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    border:2px solid #e63946;
+}
+
+.btn-red{
+    background:#e63946;
+    color:white;
+}
+
+.btn-red:hover{
+    background:#c92d3a;
+}
+
+.btn-outline{
+    color:white;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:#111;
+}
+
+/* SECTION */
+section{
+    padding:75px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:38px;
+    color:#111;
+}
+
+.section-title span{
+    color:#e63946;
+}
+
+.section-title p{
+    color:#777;
+    margin-top:10px;
+}
+
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.about-text h2{
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    line-height:1.8;
+    color:#555;
+    margin-bottom:15px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:25px;
+}
+
+.feature{
+    padding:15px;
+    background:#fff;
+    border-left:4px solid #e63946;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+/* MENU */
+.menu-section{
+    background:#f5eee8;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.card-content p{
+    color:#666;
+    line-height:1.5;
+    min-height:45px;
+}
+
+.price{
+    color:#e63946;
+    font-size:20px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.order-btn{
+    border:none;
+    background:#111;
+    color:white;
+    padding:11px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.order-btn:hover{
+    background:#e63946;
+}
+
+/* BRANCHES */
+.branches{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.branch{
+    background:#111;
+    color:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.branch h3{
+    color:#e63946;
+    font-size:23px;
+    margin-bottom:12px;
+}
+
+.branch p{
+    line-height:1.7;
+    color:#ddd;
+}
+
+/* SPECIAL */
+.special{
+    background:
+    linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+    color:white;
+    text-align:center;
+}
+
+.special h2{
+    font-size:42px;
+}
+
+.special p{
+    margin:15px auto 25px;
+    max-width:650px;
+    line-height:1.7;
+}
+
+/* REVIEWS */
+.reviews{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.review{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.stars{
+    color:#f5a623;
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.review p{
+    color:#666;
+    line-height:1.6;
+    font-style:italic;
+}
+
+.review h4{
+    margin-top:15px;
+}
+
+/* CONTACT */
+.contact{
+    background:#f5eee8;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.contact-box{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.contact-box h3{
+    margin-bottom:20px;
+    font-size:25px;
+}
+
+.contact-info{
+    margin:15px 0;
+    line-height:1.7;
+}
+
+.contact-info strong{
+    color:#e63946;
+}
+
+form input,
+form textarea{
+    width:100%;
+    padding:13px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+}
+
+form textarea{
+    height:120px;
+    resize:none;
+}
+
+form button{
+    border:none;
+    padding:13px 25px;
+    background:#e63946;
+    color:white;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:#aaa;
+    text-align:center;
+    padding:30px 20px;
+}
+
+footer h2{
+    color:#e63946;
+    margin-bottom:10px;
+}
+
+footer a{
+    color:#e63946;
+    text-decoration:none;
+}
+
+/* CART */
+.cart{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    background:#e63946;
+    color:white;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+    z-index:2000;
+}
+
+.cart-count{
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    background:#111;
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    font-size:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .menu-grid,
+    .branches,
+    .reviews{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about,
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:700px){
+    nav ul{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        background:#111;
+        flex-direction:column;
+        padding:20px;
+        text-align:center;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero{
+        min-height:550px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .menu-grid,
+    .branches,
+    .reviews{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+        Italiano <span>Pizza & Burgers</span>
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <ul id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#branches">Branches</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <h1>
+            Taste the Real <span>Italiano</span>
+        </h1>
+
+        <p>
+            Mouth-watering pizzas, delicious burgers and unbeatable
+            prices. Experience great taste and unmatched quality at
+            Italiano Pizza & Burgers.
+        </p>
+
+        <div class="buttons">
+            <a href="#menu" class="btn btn-red">Explore Menu</a>
+            <a href="#contact" class="btn btn-outline">Contact Us</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="about">
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=80"
+                 alt="Italiano Pizza">
+        </div>
+
+        <div class="about-text">
+
+            <h2>Welcome to <span style="color:#e63946">Italiano</span></h2>
+
+            <p>
+                Discover Italiano Pizza, a trusted destination for
+                mouth-watering pizzas and burgers in Rawalpindi and Islamabad.
+            </p>
+
+            <p>
+                We believe delicious food should be made with quality
+                ingredients, great care and passion. Whether you're
+                dining with family or grabbing a quick meal, Italiano
+                is ready to serve you.
+            </p>
+
+            <div class="features">
+                <div class="feature">🍕 Fresh & Delicious Pizza</div>
+                <div class="feature">🍔 Tasty Burgers</div>
+                <div class="feature">💰 Affordable Prices</div>
+                <div class="feature">⭐ Quality Food</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+
+    <div class="section-title">
+        <h2>Our <span>Popular Menu</span></h2>
+        <p>Freshly prepared favorites from Italiano</p>
+    </div>
+
+    <div class="menu-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Italiano Special Pizza</h3>
+                <p>Loaded with delicious toppings and rich cheese.</p>
+                <div class="price">Rs. 999</div>
+                <button class="order-btn" onclick="addToCart('Italiano Special Pizza')">
+                    Add to Order
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Classic Beef Burger</h3>
+                <p>Juicy beef patty with fresh vegetables and sauce.</p>
+                <div class="price">Rs. 599</div>
+                <button class="order-btn" onclick="addToCart('Classic Beef Burger')">
+                    Add to Order
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Cheese Pizza</h3>
+                <p>Extra cheese and a delicious crispy crust.</p>
+                <div class="price">Rs. 899</div>
+                <button class="order-btn" onclick="addToCart('Cheese Pizza')">
+                    Add to Order
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Chicken Burger</h3>
+                <p>Crispy chicken with creamy sauce and fresh salad.</p>
+                <div class="price">Rs. 549</div>
+                <button class="order-btn" onclick="addToCart('Chicken Burger')">
+                    Add to Order
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Chicken Tikka Pizza</h3>
+                <p>Spicy chicken tikka with cheese and special sauce.</p>
+                <div class="price">Rs. 1099</div>
+                <button class="order-btn" onclick="addToCart('Chicken Tikka Pizza')">
+                    Add to Order
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Loaded Fries</h3>
+                <p>Crispy fries topped with delicious sauces and cheese.</p>
+                <div class="price">Rs. 399</div>
+                <button class="order-btn" onclick="addToCart('Loaded Fries')">
+                    Add to Order
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SPECIAL OFFER -->
+<section class="special">
+
+    <h2>Hungry? Let's Make It Special!</h2>
+
+    <p>
+        Enjoy delicious pizza and burgers at unbeatable prices.
+        Visit your nearest Italiano branch today.
+    </p>
+
+    <a href="#contact" class="btn btn-red">Order Now</a>
+
+</section>
+
+<!-- BRANCHES -->
+<section id="branches">
+
+    <div class="section-title">
+        <h2>Our <span>Branches</span></h2>
+        <p>Visit Italiano at your nearest location</p>
+    </div>
+
+    <div class="branches">
+
+        <div class="branch">
+            <h3>📍 Satellite Town</h3>
+            <p>
+                D-797, 5th Road<br>
+                D-Block, Satellite Town<br>
+                Rawalpindi, Pakistan
+            </p>
+        </div>
+
+        <div class="branch">
+            <h3>📍 PWD</h3>
+            <p>
+                PWD, Islamabad<br>
+                Islamabad, Pakistan
+            </p>
+        </div>
+
+        <div class="branch">
+            <h3>📍 Gulzar-e-Quaid</h3>
+            <p>
+                Gulzar-e-Quaid<br>
+                Rawalpindi, Pakistan
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" style="background:#f5eee8">
+
+    <div class="section-title">
+        <h2>Customer <span>Reviews</span></h2>
+        <p>What our customers say about Italiano</p>
+    </div>
+
+    <div class="reviews">
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+                "Amazing pizza and great taste. The quality was
+                excellent and the prices were reasonable."
+            </p>
+            <h4>— Happy Customer</h4>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+                "Loved the burgers! Fresh, tasty and filling.
+                Definitely worth trying."
+            </p>
+            <h4>— Food Lover</h4>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+                "Great place for family and friends. Good food
+                and friendly service."
+            </p>
+            <h4>— Regular Customer</h4>
+        </div>
+
+    </div>
+
+    <p style="text-align:center;margin-top:30px;font-weight:bold;">
+        ⭐ 94% recommend · 12 reviews
+    </p>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="section-title">
+        <h2>Contact <span>Italiano</span></h2>
+        <p>We'd love to hear from you</p>
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-box">
+
+            <h3>Get In Touch</h3>
+
+            <div class="contact-info">
+                <strong>📞 Phone</strong><br>
+                <a href="tel:+923215669674">
+                    0321-5669674
+                </a>
+            </div>
+
+            <div class="contact-info">
+                <strong>📧 Email</strong><br>
+                <a href="mailto:faizan.tariq12315@gmail.com">
+                    faizan.tariq12315@gmail.com
+                </a>
+            </div>
+
+            <div class="contact-info">
+                <strong>📍 Address</strong><br>
+                D-797, 5th Road, Satellite Town,
+                D-Block, Rawalpindi, Pakistan
+            </div>
+
+            <div class="contact-info">
+                <strong>🕒 Status</strong><br>
+                Open Now
+            </div>
+
+            <p style="margin-top:20px;">
+                Dine in · Roadside collection · In-store collection
+            </p>
+
+        </div>
+
+        <div class="contact-box">
+
+            <h3>Send Us a Message</h3>
+
+            <form onsubmit="sendMessage(event)">
+
+                <input type="text"
+                       id="name"
+                       placeholder="Your Name"
+                       required>
+
+                <input type="email"
+                       id="email"
+                       placeholder="Your Email"
+                       required>
+
+                <textarea id="message"
+                          placeholder="Your Message"
+                          required></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>Italiano Pizza & Burgers</h2>
+
+    <p>
+        Mouth-watering pizza. Delicious burgers.
+        Unbeatable prices.
+    </p>
+
+    <p style="margin-top:15px;">
+        📞 0321-5669674
+    </p>
+
+    <p style="margin-top:20px;">
+        © <span id="year"></span> Italiano Pizza & Burgers.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+<!-- CART BUTTON -->
+<div class="cart" onclick="showCart()">
+
+    🛒
+
+    <div class="cart-count" id="cartCount">
+        0
+    </div>
+
+</div>
+
+<script>
+
+/* MOBILE MENU */
+function toggleMenu(){
+    document.getElementById("navLinks")
+    .classList.toggle("active");
+}
+
+
+/* CART */
+let cart = [];
+
+function addToCart(item){
+
+    cart.push(item);
+
+    document.getElementById("cartCount")
+        .textContent = cart.length;
+
+    alert(item + " added to your order!");
+
+}
+
+
+/* SHOW CART */
+function showCart(){
+
+    if(cart.length === 0){
+
+        alert("Your order is empty.");
+
+        return;
+    }
+
+    let message =
+        "Your Italiano Order:\\n\\n";
+
+    cart.forEach(function(item,index){
+
+        message +=
+            (index + 1) + ". " +
+            item + "\\n";
+
+    });
+
+    message +=
+        "\\nThank you for ordering from Italiano Pizza & Burgers!";
+
+    alert(message);
+
+}
+
+
+/* CONTACT FORM */
+function sendMessage(event){
+
+    event.preventDefault();
+
+    let name =
+        document.getElementById("name").value;
+
+    alert(
+        "Thank you, " + name +
+        "! Your message has been received."
+    );
+
+    event.target.reset();
+
+}
+
+
+/* CURRENT YEAR */
+document.getElementById("year")
+.textContent = new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
